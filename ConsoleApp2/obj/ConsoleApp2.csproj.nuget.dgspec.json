@@ -1,0 +1,98 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Primero Systems Repos\\ConsoleApp2\\ConsoleApp2\\ConsoleApp2.csproj": {}
+  },
+  "projects": {
+    "C:\\Primero Systems Repos\\ConsoleApp2\\ConsoleApp2\\ConsoleApp2.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Primero Systems Repos\\ConsoleApp2\\ConsoleApp2\\ConsoleApp2.csproj",
+        "projectName": "ConsoleApp2",
+        "projectPath": "C:\\Primero Systems Repos\\ConsoleApp2\\ConsoleApp2\\ConsoleApp2.csproj",
+        "packagesPath": "C:\\Users\\sacri\\.nuget\\packages\\",
+        "outputPath": "C:\\Primero Systems Repos\\ConsoleApp2\\ConsoleApp2\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\sacri\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Projects\\LocalNuget": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.primerosystems.com/nuget": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "OxyPlot.Core": {
+              "target": "Package",
+              "version": "[2.1.2, )"
+            },
+            "OxyPlot.SkiaSharp": {
+              "target": "Package",
+              "version": "[2.1.2, )"
+            },
+            "PDFsharp-MigraDoc": {
+              "target": "Package",
+              "version": "[1.50.5147, )"
+            },
+            "PdfSharp": {
+              "target": "Package",
+              "version": "[1.50.5147, )"
+            },
+            "QuestPDF": {
+              "target": "Package",
+              "version": "[2023.5.0, )"
+            },
+            "SkiaSharp.Svg": {
+              "target": "Package",
+              "version": "[1.60.0, )"
+            },
+            "System.Drawing.Common": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "System.Text.Encoding.CodePages": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

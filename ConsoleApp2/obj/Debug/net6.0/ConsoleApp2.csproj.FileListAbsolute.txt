@@ -1,0 +1,75 @@
+C:\Users\maria\source\repos\ConsoleApp2\ConsoleApp2\bin\Debug\net6.0\ConsoleApp2.exe
+C:\Users\maria\source\repos\ConsoleApp2\ConsoleApp2\bin\Debug\net6.0\ConsoleApp2.deps.json
+C:\Users\maria\source\repos\ConsoleApp2\ConsoleApp2\bin\Debug\net6.0\ConsoleApp2.runtimeconfig.json
+C:\Users\maria\source\repos\ConsoleApp2\ConsoleApp2\bin\Debug\net6.0\ConsoleApp2.dll
+C:\Users\maria\source\repos\ConsoleApp2\ConsoleApp2\bin\Debug\net6.0\ConsoleApp2.pdb
+C:\Users\maria\source\repos\ConsoleApp2\ConsoleApp2\bin\Debug\net6.0\HarfBuzzSharp.dll
+C:\Users\maria\source\repos\ConsoleApp2\ConsoleApp2\bin\Debug\net6.0\QuestPDF.dll
+C:\Users\maria\source\repos\ConsoleApp2\ConsoleApp2\bin\Debug\net6.0\SkiaSharp.dll
+C:\Users\maria\source\repos\ConsoleApp2\ConsoleApp2\bin\Debug\net6.0\SkiaSharp.HarfBuzz.dll
+C:\Users\maria\source\repos\ConsoleApp2\ConsoleApp2\bin\Debug\net6.0\runtimes\osx\native\libHarfBuzzSharp.dylib
+C:\Users\maria\source\repos\ConsoleApp2\ConsoleApp2\bin\Debug\net6.0\runtimes\win-arm64\native\libHarfBuzzSharp.dll
+C:\Users\maria\source\repos\ConsoleApp2\ConsoleApp2\bin\Debug\net6.0\runtimes\win-x64\native\libHarfBuzzSharp.dll
+C:\Users\maria\source\repos\ConsoleApp2\ConsoleApp2\bin\Debug\net6.0\runtimes\win-x86\native\libHarfBuzzSharp.dll
+C:\Users\maria\source\repos\ConsoleApp2\ConsoleApp2\bin\Debug\net6.0\runtimes\osx\native\libSkiaSharp.dylib
+C:\Users\maria\source\repos\ConsoleApp2\ConsoleApp2\bin\Debug\net6.0\runtimes\win-arm64\native\libSkiaSharp.dll
+C:\Users\maria\source\repos\ConsoleApp2\ConsoleApp2\bin\Debug\net6.0\runtimes\win-x64\native\libSkiaSharp.dll
+C:\Users\maria\source\repos\ConsoleApp2\ConsoleApp2\bin\Debug\net6.0\runtimes\win-x86\native\libSkiaSharp.dll
+C:\Users\maria\source\repos\ConsoleApp2\ConsoleApp2\obj\Debug\net6.0\ConsoleApp2.csproj.AssemblyReference.cache
+C:\Users\maria\source\repos\ConsoleApp2\ConsoleApp2\obj\Debug\net6.0\ConsoleApp2.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\maria\source\repos\ConsoleApp2\ConsoleApp2\obj\Debug\net6.0\ConsoleApp2.AssemblyInfoInputs.cache
+C:\Users\maria\source\repos\ConsoleApp2\ConsoleApp2\obj\Debug\net6.0\ConsoleApp2.AssemblyInfo.cs
+C:\Users\maria\source\repos\ConsoleApp2\ConsoleApp2\obj\Debug\net6.0\ConsoleApp2.csproj.CoreCompileInputs.cache
+C:\Users\maria\source\repos\ConsoleApp2\ConsoleApp2\obj\Debug\net6.0\ConsoleApp2.csproj.CopyComplete
+C:\Users\maria\source\repos\ConsoleApp2\ConsoleApp2\obj\Debug\net6.0\ConsoleApp2.dll
+C:\Users\maria\source\repos\ConsoleApp2\ConsoleApp2\obj\Debug\net6.0\refint\ConsoleApp2.dll
+C:\Users\maria\source\repos\ConsoleApp2\ConsoleApp2\obj\Debug\net6.0\ConsoleApp2.pdb
+C:\Users\maria\source\repos\ConsoleApp2\ConsoleApp2\obj\Debug\net6.0\ConsoleApp2.genruntimeconfig.cache
+C:\Users\maria\source\repos\ConsoleApp2\ConsoleApp2\obj\Debug\net6.0\ref\ConsoleApp2.dll
+C:\Primero Systems Repos\ConsoleApp2\ConsoleApp2\bin\Debug\net6.0\ConsoleApp2.exe
+C:\Primero Systems Repos\ConsoleApp2\ConsoleApp2\bin\Debug\net6.0\ConsoleApp2.deps.json
+C:\Primero Systems Repos\ConsoleApp2\ConsoleApp2\bin\Debug\net6.0\ConsoleApp2.runtimeconfig.json
+C:\Primero Systems Repos\ConsoleApp2\ConsoleApp2\bin\Debug\net6.0\ConsoleApp2.dll
+C:\Primero Systems Repos\ConsoleApp2\ConsoleApp2\bin\Debug\net6.0\ConsoleApp2.pdb
+C:\Primero Systems Repos\ConsoleApp2\ConsoleApp2\bin\Debug\net6.0\HarfBuzzSharp.dll
+C:\Primero Systems Repos\ConsoleApp2\ConsoleApp2\bin\Debug\net6.0\QuestPDF.dll
+C:\Primero Systems Repos\ConsoleApp2\ConsoleApp2\bin\Debug\net6.0\SkiaSharp.dll
+C:\Primero Systems Repos\ConsoleApp2\ConsoleApp2\bin\Debug\net6.0\SkiaSharp.HarfBuzz.dll
+C:\Primero Systems Repos\ConsoleApp2\ConsoleApp2\bin\Debug\net6.0\runtimes\osx\native\libHarfBuzzSharp.dylib
+C:\Primero Systems Repos\ConsoleApp2\ConsoleApp2\bin\Debug\net6.0\runtimes\win-arm64\native\libHarfBuzzSharp.dll
+C:\Primero Systems Repos\ConsoleApp2\ConsoleApp2\bin\Debug\net6.0\runtimes\win-x64\native\libHarfBuzzSharp.dll
+C:\Primero Systems Repos\ConsoleApp2\ConsoleApp2\bin\Debug\net6.0\runtimes\win-x86\native\libHarfBuzzSharp.dll
+C:\Primero Systems Repos\ConsoleApp2\ConsoleApp2\bin\Debug\net6.0\runtimes\osx\native\libSkiaSharp.dylib
+C:\Primero Systems Repos\ConsoleApp2\ConsoleApp2\bin\Debug\net6.0\runtimes\win-arm64\native\libSkiaSharp.dll
+C:\Primero Systems Repos\ConsoleApp2\ConsoleApp2\bin\Debug\net6.0\runtimes\win-x64\native\libSkiaSharp.dll
+C:\Primero Systems Repos\ConsoleApp2\ConsoleApp2\bin\Debug\net6.0\runtimes\win-x86\native\libSkiaSharp.dll
+C:\Primero Systems Repos\ConsoleApp2\ConsoleApp2\obj\Debug\net6.0\ConsoleApp2.csproj.AssemblyReference.cache
+C:\Primero Systems Repos\ConsoleApp2\ConsoleApp2\obj\Debug\net6.0\ConsoleApp2.GeneratedMSBuildEditorConfig.editorconfig
+C:\Primero Systems Repos\ConsoleApp2\ConsoleApp2\obj\Debug\net6.0\ConsoleApp2.AssemblyInfoInputs.cache
+C:\Primero Systems Repos\ConsoleApp2\ConsoleApp2\obj\Debug\net6.0\ConsoleApp2.AssemblyInfo.cs
+C:\Primero Systems Repos\ConsoleApp2\ConsoleApp2\obj\Debug\net6.0\ConsoleApp2.csproj.CoreCompileInputs.cache
+C:\Primero Systems Repos\ConsoleApp2\ConsoleApp2\obj\Debug\net6.0\ConsoleApp2.csproj.CopyComplete
+C:\Primero Systems Repos\ConsoleApp2\ConsoleApp2\obj\Debug\net6.0\ConsoleApp2.dll
+C:\Primero Systems Repos\ConsoleApp2\ConsoleApp2\obj\Debug\net6.0\refint\ConsoleApp2.dll
+C:\Primero Systems Repos\ConsoleApp2\ConsoleApp2\obj\Debug\net6.0\ConsoleApp2.pdb
+C:\Primero Systems Repos\ConsoleApp2\ConsoleApp2\obj\Debug\net6.0\ConsoleApp2.genruntimeconfig.cache
+C:\Primero Systems Repos\ConsoleApp2\ConsoleApp2\obj\Debug\net6.0\ref\ConsoleApp2.dll
+C:\Primero Systems Repos\ConsoleApp2\ConsoleApp2\bin\Debug\net6.0\OxyPlot.dll
+C:\Primero Systems Repos\ConsoleApp2\ConsoleApp2\bin\Debug\net6.0\OxyPlot.SkiaSharp.dll
+C:\Primero Systems Repos\ConsoleApp2\ConsoleApp2\bin\Debug\net6.0\PdfSharp.Charting.dll
+C:\Primero Systems Repos\ConsoleApp2\ConsoleApp2\bin\Debug\net6.0\PdfSharp.dll
+C:\Primero Systems Repos\ConsoleApp2\ConsoleApp2\bin\Debug\net6.0\de\PdfSharp.Charting.resources.dll
+C:\Primero Systems Repos\ConsoleApp2\ConsoleApp2\bin\Debug\net6.0\de\PdfSharp.resources.dll
+C:\Primero Systems Repos\ConsoleApp2\ConsoleApp2\bin\Debug\net6.0\MigraDoc.DocumentObjectModel.dll
+C:\Primero Systems Repos\ConsoleApp2\ConsoleApp2\bin\Debug\net6.0\MigraDoc.Rendering.dll
+C:\Primero Systems Repos\ConsoleApp2\ConsoleApp2\bin\Debug\net6.0\MigraDoc.RtfRendering.dll
+C:\Primero Systems Repos\ConsoleApp2\ConsoleApp2\bin\Debug\net6.0\de\MigraDoc.DocumentObjectModel.resources.dll
+C:\Primero Systems Repos\ConsoleApp2\ConsoleApp2\bin\Debug\net6.0\de\MigraDoc.Rendering.resources.dll
+C:\Primero Systems Repos\ConsoleApp2\ConsoleApp2\bin\Debug\net6.0\de\MigraDoc.RtfRendering.resources.dll
+C:\Primero Systems Repos\ConsoleApp2\ConsoleApp2\bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll
+C:\Primero Systems Repos\ConsoleApp2\ConsoleApp2\bin\Debug\net6.0\System.Drawing.Common.dll
+C:\Primero Systems Repos\ConsoleApp2\ConsoleApp2\bin\Debug\net6.0\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll
+C:\Primero Systems Repos\ConsoleApp2\ConsoleApp2\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
+C:\Primero Systems Repos\ConsoleApp2\ConsoleApp2\bin\Debug\net6.0\System.Text.Encoding.CodePages.dll
+C:\Primero Systems Repos\ConsoleApp2\ConsoleApp2\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Text.Encoding.CodePages.dll
+C:\Primero Systems Repos\ConsoleApp2\ConsoleApp2\bin\Debug\net6.0\SkiaSharp.Extended.Svg.dll
