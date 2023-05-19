@@ -30,9 +30,10 @@ public class InvoiceDocument : IDocument
     {
         container.Page(page =>
         {
-            page.Margin(30, QuestPDF.Infrastructure.Unit.Point);
+            page.Margin(40, QuestPDF.Infrastructure.Unit.Point);
             page.Header().Element(ComposeHeader);
-            page.Content().Element(ComposeContent);
+            page.Content().Element(ComposeContentFirstPage);
+            page.Size(PageSizes.A4);
         });
     }
 
@@ -42,7 +43,6 @@ public class InvoiceDocument : IDocument
 
         byte[] lgcLogo = File.ReadAllBytes("./lgclogo.jpg");
         byte[] msdrInfinity = File.ReadAllBytes("./msdr.png");
-        byte[] validate = File.ReadAllBytes("./validate.png");
 
         container.Row(row =>
         {
@@ -68,7 +68,7 @@ public class InvoiceDocument : IDocument
         });
     }
 
-    void ComposeContent(IContainer container)
+    void ComposeContentFirstPage(IContainer container)
     {
         container.PaddingVertical(10).Column(column =>
         {
@@ -77,11 +77,17 @@ public class InvoiceDocument : IDocument
             // Add Data Rectangle
             column.Item().Element(ComposeDataRectangle);
 
-            // Add table
+            // Several Data
+            column.Item().Element(ComposeData);
+            column.Item().Element(ComposeData2);
+            column.Item().Element(ComposeData3);
+            // Table
+            column.Item().Element(ComposeLineThrough);
+            column.Item().Element(ComposeTableData);
             column.Item().Element(ComposeTable);
-
-            // Add Graph
-            column.Item().Element(ComposeGraph);
+            column.Item().Element(ComposeLineThrough);
+            // Footer
+            column.Item().Element(ComposeFooter);
         });
     }
 
@@ -94,8 +100,8 @@ public class InvoiceDocument : IDocument
                 column.Item().AlignLeft().Text(text =>
                 {
                     text.DefaultTextStyle(x => x.FontSize(10).Bold());
-                    text.Line("Analyzer: Test");
-                    text.Line("Serial#: 85050");
+                    text.Line("Analyzer:  Test");
+                    text.Line("Serial#:  85050");
                 });
             });
             row.RelativeItem().Column(column =>
@@ -103,10 +109,105 @@ public class InvoiceDocument : IDocument
                 column.Item().AlignLeft().Text(text =>
                 {
                     text.DefaultTextStyle(x => x.FontSize(10).Bold());
-                    text.Line("Account:125212");
+                    text.Line("Account:  125212");
                     text.Line("Company: ");
-                    text.Line("Facility: St. Mary's Regional Testing Center");
+                    text.Line("Facility:  St. Mary's Regional Testing Center");
                 });
+            });
+        });
+    }
+
+    void ComposeData(IContainer container)
+    {
+        byte[] validate = File.ReadAllBytes("./validate.png");
+
+        container.Padding(3).Row(row =>
+        {
+            row.RelativeItem().DefaultTextStyle(x => x.FontSize(10)).Column(column =>
+            {
+                column.Item().AlignLeft().Text(text =>
+                {
+                    text.Span("Submission ID: ");
+                    text.Span(" 23-302763").ExtraBold();
+                });
+                column.Item().AlignLeft().Text(text =>
+                {
+                    text.Span("Entry Type:  Calibration Verification");
+                });
+            });
+            row.RelativeItem().Column(column =>
+            {
+                column.Item().AlignRight().Width(120, QuestPDF.Infrastructure.Unit.Point).Image(validate);
+            });
+        });
+    }
+
+    void ComposeData2(IContainer container)
+    {
+        container.Padding(3).Row(row =>
+        {
+            row.RelativeItem().Column(col =>
+            {
+                col.Item().AlignLeft().Text("The following data was processed through LGC Maine Standards’ MSDRx® software program, using VALIDATE® Linearity and Calibration Verification materials.If you have any questions, please call LGC Maine Standards at 1 - 207 - 892 - 1300 or e - mail msc.datareduction@lgcgroup.com.Access historical reports at any time via msdrx.mainestandards.com.").FontSize(8);
+            });
+        });
+    }
+
+    void ComposeData3(IContainer container)
+    {
+        container.Padding(3).Row(row =>
+        {
+            row.RelativeItem().Column(col =>
+            {
+                col.Item().AlignLeft().Text("To view the Analyte Report Explanation Guide, please visit: www.mainestandards.com/report_guide").FontSize(8);
+            });
+        });
+    }
+
+    void ComposeTableData(IContainer container)
+    {
+        container.Padding(3).DefaultTextStyle(x => x.FontSize(9).Bold()).Row(row =>
+        {
+            row.RelativeItem().Column(column =>
+            {
+                column.Item().AlignLeft().Text(text =>
+                {
+                    text.Span("Product:  ").ExtraBold();
+                    text.Span("GC3");
+                });
+                column.Item().AlignLeft().Text(text =>
+                {
+                    text.Span("SKU:  ").ExtraBold();
+                    text.Span("1300AB");
+                });
+                column.Item().AlignLeft().Text(text =>
+                {
+                    text.Span("Comments:").ExtraBold();
+                });
+            });
+            row.RelativeItem().Column(column =>
+            {
+                column.Item().AlignLeft().Text(text =>
+                {
+                    text.Span("Lot #:  ").ExtraBold();
+                    text.Span("10534898");
+                });
+                column.Item().AlignLeft().Text(text =>
+                {
+                    text.Span("Expiration:  ").ExtraBold();
+                    text.Span("12/28/23");
+                });
+            });
+        });
+    }
+
+    void ComposeLineThrough(IContainer container)
+    {
+        container.Padding(3).Row(row =>
+        {
+            row.RelativeItem().Column(col =>
+            {
+                col.Item().PaddingVertical(5).LineHorizontal(1).LineColor(QuestPDF.Helpers.Colors.Black);
             });
         });
     }
@@ -163,6 +264,37 @@ public class InvoiceDocument : IDocument
             table.Cell().Element(CellStyle).Background("#FFFFFF").Padding(2).AlignLeft().Text("05/02/2023").FontSize(8);
             table.Cell().Element(CellStyle).Background("#FFFFFF").Padding(2).AlignLeft().Text("27.5 to 2,527.50 U/L").FontSize(8);
             table.Cell().Element(CellStyle).Background("#FFFFFF").Padding(2);
+        });
+    }
+
+    void ComposeFooter(IContainer container)
+    {
+        container.DefaultTextStyle(x => x.FontSize(6).Bold()).Row(row =>
+        {
+            row.RelativeItem().Column(column =>
+            {
+                column.Item().AlignLeft().Text(txt =>
+                {
+                    txt.Line("Generated by MSDRx®");
+                    txt.Line("Template: 0.92");
+                });
+            });
+
+            row.RelativeItem().Column(column =>
+            {
+                column.Item().AlignRight().Text(txt =>
+                {
+                    txt.Span("Page ");
+                    txt.CurrentPageNumber();
+                    txt.Span(" of ");
+                    txt.TotalPages();
+                });
+
+                column.Item().AlignRight().Text(txt =>
+                {
+                    txt.Line("printed: 05/02/2023");
+                });
+            });
         });
     }
 }
