@@ -1,25 +1,19 @@
 ﻿using OxyPlot;
 using OxyPlot.Series;
-using QuestPDF.Fluent;
-using QuestPDF.Helpers;
 using QuestPDF.Infrastructure;
-using QuestPDF.Drawing;
-using SkiaSharp;
-using OxyPlot.SkiaSharp;
-using OxyPlot.Annotations;
 using OxyPlot.Axes;
 using OxyPlot.Legends;
 
 public class OxyplotController
 {
-    public PlotModel GetPlot()
+    public PlotModel GetFirstPlot()
     {
         // Create an OxyPlot PlotModel
         var plotModel = new PlotModel
         {
             Padding = new OxyThickness(10, 20, 10, 10),
             Title = "Linearity accross the reportable range",
-            TitleFontSize = 12,
+            TitleFontSize = 8,
             TitleHorizontalAlignment = TitleHorizontalAlignment.CenteredWithinView,
             PlotAreaBackground = OxyColors.White,
             TitleColor = OxyColors.Black,
@@ -36,6 +30,7 @@ public class OxyplotController
             Maximum = 15,
             MajorGridlineStyle = LineStyle.Solid,
             MajorGridlineColor = OxyColor.FromRgb(200, 200, 200),
+            FontSize = 8,
         };
         plotModel.Axes.Add(xAxis);
 
@@ -48,15 +43,17 @@ public class OxyplotController
             Maximum = 6000,
             MajorGridlineStyle = LineStyle.Solid,
             MajorGridlineColor = OxyColor.FromRgb(200, 200, 200),
+            FontSize = 8,
         };
         plotModel.Axes.Add(yAxis);
 
         // Create a series for your chart
         var series0 = new LineSeries
         {
+            Title = "Applied Limits",
             LineStyle = LineStyle.Dot,
             Color = OxyColors.Blue,
-            StrokeThickness = 2,
+            StrokeThickness = 1,
             MarkerFill = OxyColors.DarkGreen,
             MarkerSize = 5,
             ItemsSource = new DataPoint[]
@@ -70,7 +67,7 @@ public class OxyplotController
         {
             LineStyle = LineStyle.Dot,
             Color = OxyColors.Blue,
-            StrokeThickness = 2,
+            StrokeThickness = 1,
             MarkerFill = OxyColors.DarkGreen,
             MarkerSize = 5,
             ItemsSource = new DataPoint[]
@@ -82,12 +79,10 @@ public class OxyplotController
 
         var series2 = new LineSeries
         {
+            Title = "Linear Regression",
             LineStyle = LineStyle.Dot,
-            Color = OxyColors.Red,
-            StrokeThickness = 2,
-            MarkerType = MarkerType.Triangle,
-            MarkerFill = OxyColors.DarkGreen,
-            MarkerSize = 5,
+            Color = OxyColors.Yellow,
+            StrokeThickness = 1,
             ItemsSource = new DataPoint[]
             {
                 new DataPoint(1, 0),
@@ -100,15 +95,186 @@ public class OxyplotController
 
         var series3 = new LineSeries
         {
+            Title = "Theoretical Values",
             LineStyle = LineStyle.Dot,
-            Color = OxyColors.Red,
+            Color = OxyColors.Transparent,
             StrokeThickness = 2,
             MarkerType = MarkerType.Square,
             MarkerFill = OxyColors.Cyan,
+            MarkerSize = 2,
+            ItemsSource = new DataPoint[]
+            {
+                new DataPoint(1, 0),
+                new DataPoint(2, 500),
+                new DataPoint(3, 1000),
+                new DataPoint(4, 1500),
+                new DataPoint(10, 4500),
+            },
+        };
+
+        var series4 = new LineSeries
+        {
+            Title = "Observed Values",
+            LineStyle = LineStyle.Dot,
+            Color = OxyColors.Transparent,
+            StrokeThickness = 1,
+            MarkerType = MarkerType.Triangle,
+            MarkerFill = OxyColors.DarkGreen,
+            MarkerSize = 3,
+            ItemsSource = new DataPoint[]
+            {
+                new DataPoint(1, 0),
+                new DataPoint(2, 500),
+                new DataPoint(3, 1000),
+                new DataPoint(4, 1500),
+                new DataPoint(10, 4500),
+                new DataPoint(10, 2500),
+            },
+        };
+
+        
+
+        var legendOne = new Legend
+        {
+            LegendTitle = "",
+            LegendPosition = LegendPosition.BottomCenter,
+            LegendOrientation = LegendOrientation.Horizontal,
+            LegendPlacement = LegendPlacement.Outside,
+            LegendFontSize = 6,
+            AllowUseFullExtent = true,
+            
+        };
+
+        // Add the series and legends to the plot model
+        plotModel.Series.Add(series0);
+        plotModel.Series.Add(series1);
+        plotModel.Series.Add(series2);
+        plotModel.Series.Add(series3);
+        plotModel.Series.Add(series4);
+        plotModel.Legends.Add(legendOne);
+
+        return plotModel;
+    }
+
+    public PlotModel GetSecondPlot()
+    {
+        // Create an OxyPlot PlotModel
+        var plotModel = new PlotModel
+        {
+            Padding = new OxyThickness(10, 20, 10, 10),
+            Title = "% Difference Versus Peer Mean: GC3 LD",
+            TitleFontSize = 8,
+            TitleHorizontalAlignment = TitleHorizontalAlignment.CenteredWithinView,
+            PlotAreaBackground = OxyColors.White,
+            TitleColor = OxyColors.Black,
+            IsLegendVisible = true,
+        };
+
+        // Create the axis for the PlotModel
+        var xAxis = new LinearAxis
+        {
+            Title = "Linear Dilution Level",
+            Position = AxisPosition.Bottom,
+            AxisTickToLabelDistance = 10,
+            MajorStep = 1,
+            Maximum = 6,
+            Minimum = 1,
+            MajorGridlineStyle = LineStyle.Solid,
+            MajorGridlineColor = OxyColor.FromRgb(200, 200, 200),
+            FontSize = 8,
+        };
+        plotModel.Axes.Add(xAxis);
+
+        var yAxis = new LinearAxis
+        {
+            Title = "Values",
+            Position = AxisPosition.Left,
+            AxisTickToLabelDistance = 5,
+            MajorStep = 10,
+            MinorStep = 5,
+            MajorTickSize = 5,
+            MinorTickSize = 2.5,
+            Maximum = 50,
+            Minimum = -10,
+            LabelFormatter = _percentageFormatter,
+            MajorGridlineStyle = LineStyle.Solid,
+            MajorGridlineColor = OxyColor.FromRgb(200, 200, 200),
+            FontSize = 8,
+        };
+        plotModel.Axes.Add(yAxis);
+
+        // Create a series for your chart
+        var series0 = new LineSeries
+        {
+            LineStyle = LineStyle.Dot,
+            Color = OxyColors.Blue,
+            StrokeThickness = 3,
+            MarkerFill = OxyColors.Blue,
             MarkerSize = 5,
             ItemsSource = new DataPoint[]
             {
-                new DataPoint(10, 4500),
+                new DataPoint(1, -10),
+                new DataPoint(2, -10),
+                new DataPoint(3, -10),
+                new DataPoint(4, -10),
+                new DataPoint(5, -10),
+                new DataPoint(6, -10),
+            },
+        };
+
+        var series1 = new LineSeries
+        {
+            LineStyle = LineStyle.Dot,
+            Color = OxyColors.Yellow,
+            StrokeThickness = 2,
+            MarkerFill = OxyColors.Yellow,
+            MarkerType = MarkerType.Circle,
+            MarkerSize = 1,
+            ItemsSource = new DataPoint[]
+            {
+                new DataPoint(1, 0),
+                new DataPoint(2, 0),
+                new DataPoint(3, 0),
+                new DataPoint(4, 0),
+                new DataPoint(5, 0),
+                new DataPoint(6, 0),
+            },
+        };
+
+        var series2 = new LineSeries
+        {
+            LineStyle = LineStyle.Dot,
+            Color = OxyColors.Blue,
+            StrokeThickness = 2,
+            MarkerType = MarkerType.Circle,
+            MarkerFill = OxyColors.Blue,
+            MarkerSize = 1,
+            ItemsSource = new DataPoint[]
+            {
+                new DataPoint(1, 10),
+                new DataPoint(2, 10),
+                new DataPoint(3, 10),
+                new DataPoint(4, 10),
+                new DataPoint(5, 10),
+                new DataPoint(6, 10),
+            },
+        };
+
+        var series3 = new LineSeries
+        {
+            LineStyle = LineStyle.None,
+            StrokeThickness = 0,
+            MarkerFill = OxyColors.Blue,
+            MarkerType = MarkerType.Square,
+            MarkerSize = 2,
+            ItemsSource = new DataPoint[]
+            {
+                new DataPoint(1, 0),
+                new DataPoint(2, 2),
+                new DataPoint(3, 0),
+                new DataPoint(4, 1),
+                new DataPoint(5, 2),
+                new DataPoint(5.9, 40),
             },
         };
 
@@ -117,8 +283,9 @@ public class OxyplotController
         {
             LegendPosition = LegendPosition.BottomCenter,
             LegendPlacement = LegendPlacement.Outside,
-            LegendTitle = "Observed Values, Peer Mean, Applied Limits (+ / -), Linear Regression, Theoretical Values",
+            LegendTitle = "% Diff Applied Limit(+ / -) + / -2x CV % ",
             AllowUseFullExtent = true,
+            LegendFontSize = 6,
         };
 
         // Add the series and legends to the plot model
@@ -145,5 +312,10 @@ public class OxyplotController
         var svg = new SkiaSharp.Extended.Svg.SKSvg();
         svg.Load(stream);
         return svg;
+    }
+
+    private static string _percentageFormatter(double d)
+    {
+        return String.Format("{0}%", d);
     }
 }
