@@ -81,7 +81,7 @@ public class OxyplotController
         {
             Title = "Linear Regression",
             LineStyle = LineStyle.Dot,
-            Color = OxyColors.Yellow,
+            Color = OxyColors.Goldenrod,
             StrokeThickness = 1,
             ItemsSource = new DataPoint[]
             {
@@ -132,17 +132,16 @@ public class OxyplotController
             },
         };
 
-        
-
         var legendOne = new Legend
         {
-            LegendTitle = "",
             LegendPosition = LegendPosition.BottomCenter,
             LegendOrientation = LegendOrientation.Horizontal,
             LegendPlacement = LegendPlacement.Outside,
-            LegendFontSize = 6,
+            LegendFontSize = 5,
             AllowUseFullExtent = true,
-            
+            LegendItemSpacing = 30,
+            LegendLineSpacing = 5,
+            LegendPadding = 15,
         };
 
         // Add the series and legends to the plot model
@@ -224,9 +223,10 @@ public class OxyplotController
 
         var series1 = new LineSeries
         {
+            Title = "+ / - 2x CV%",
             LineStyle = LineStyle.Dot,
             Color = OxyColors.Yellow,
-            StrokeThickness = 2,
+            StrokeThickness = 1,
             MarkerFill = OxyColors.Yellow,
             MarkerType = MarkerType.Circle,
             MarkerSize = 1,
@@ -243,9 +243,10 @@ public class OxyplotController
 
         var series2 = new LineSeries
         {
+            Title = "Applied Limit (+ / -)",
             LineStyle = LineStyle.Dot,
             Color = OxyColors.Blue,
-            StrokeThickness = 2,
+            StrokeThickness = 1,
             MarkerType = MarkerType.Circle,
             MarkerFill = OxyColors.Blue,
             MarkerSize = 1,
@@ -262,6 +263,7 @@ public class OxyplotController
 
         var series3 = new LineSeries
         {
+            Title = "% Diff",
             LineStyle = LineStyle.None,
             StrokeThickness = 0,
             MarkerFill = OxyColors.Blue,
@@ -278,14 +280,16 @@ public class OxyplotController
             },
         };
 
-        // Add Legend
         var legendOne = new Legend
         {
             LegendPosition = LegendPosition.BottomCenter,
+            LegendOrientation = LegendOrientation.Horizontal,
             LegendPlacement = LegendPlacement.Outside,
-            LegendTitle = "% Diff Applied Limit(+ / -) + / -2x CV % ",
+            LegendFontSize = 5,
             AllowUseFullExtent = true,
-            LegendFontSize = 6,
+            LegendItemSpacing = 30,
+            LegendLineSpacing = 5,
+            LegendPadding = 15,
         };
 
         // Add the series and legends to the plot model
