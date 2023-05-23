@@ -23,15 +23,15 @@ public class InvoiceDocument : IDocument
         container.Page(page =>
         {
             page.Margin(40, Unit.Point);
-            page.Header().Element(ComposeHeader);
-            page.Content().Element(ComposeContentFirstPage);
+            page.Header().DefaultTextStyle(x => x.FontFamily("Liberation Sans")).Element(ComposeHeader);
+            page.Content().DefaultTextStyle(x => x.FontFamily("Liberation Sans")).Element(ComposeContentFirstPage);
             page.Size(PageSizes.A4);
         });
         container.Page(page =>
         {
             page.Margin(40, Unit.Point);
-            page.Header().Element(ComposeHeader2);
-            page.Content().Element(ComposeContentSecondPage);
+            page.Header().DefaultTextStyle(x => x.FontFamily("Liberation Sans")).Element(ComposeHeader2);
+            page.Content().DefaultTextStyle(x => x.FontFamily("Liberation Sans")).Element(ComposeContentSecondPage);
             page.Size(PageSizes.A4);
         });
     }
