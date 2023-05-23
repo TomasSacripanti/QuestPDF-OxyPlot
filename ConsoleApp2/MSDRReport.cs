@@ -3,14 +3,12 @@ using QuestPDF.Fluent;
 using QuestPDF.Helpers;
 using QuestPDF.Infrastructure;
 
-public class InvoiceDocument : IDocument
+public class MSDRDocument : IDocument
 {
-    public LineSeries Model { get; }
     public OxyplotController _oxyplotController { get; private set; }
 
-    public InvoiceDocument(LineSeries model, OxyplotController oxyplotController)
+    public MSDRDocument(OxyplotController oxyplotController)
     {
-        Model = model;
         _oxyplotController = oxyplotController;
     }
 
