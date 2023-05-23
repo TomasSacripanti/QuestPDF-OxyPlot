@@ -123,10 +123,8 @@ public class InvoiceDocument : IDocument
 
     void ComposeContentSecondPage(IContainer container)
     {
-        container.PaddingVertical(10).Column(column =>
+        container.Column(column =>
         {
-            column.Spacing(5);
-
             // Add Section
             column.Item().Element(ComposeFirstSectionSecondPage);
             column.Item().Element(ComposeSecondSectionSecondPage);
@@ -135,8 +133,9 @@ public class InvoiceDocument : IDocument
             column.Item().Element(ComposeLineThrough);
             column.Item().Element(ComposeFourthSectionSecondPage);
             column.Item().Element(ComposeLineThrough);
+            column.Item().Element(ComposeLastSectionSecondPage);
             // Footer
-            column.Item().Element(ComposeFooter);
+            column.Item().Element(ComposeFooter2);
         });
     }
 
@@ -267,7 +266,7 @@ public class InvoiceDocument : IDocument
         {
             var plotModel = _oxyplotController.GetFirstPlot();
             column.Item()
-                .Height(230)
+                .Height(225)
                 .Canvas((canvas, size) =>
                 {
                     var svg = _oxyplotController.PlotModelToSvg(plotModel, size);
@@ -282,7 +281,7 @@ public class InvoiceDocument : IDocument
         {
             var plotModel = _oxyplotController.GetSecondPlot();
             column.Item()
-                .Height(230)
+                .Height(225)
                 .Canvas((canvas, size) =>
                 {
                     var svg = _oxyplotController.PlotModelToSvg(plotModel, size);
@@ -756,13 +755,12 @@ public class InvoiceDocument : IDocument
     {
         container.Row(row =>
         {
-            row.RelativeItem(3).DefaultTextStyle(x => x.FontSize(7)).Padding(3).Column(column =>
+            row.RelativeItem(3).DefaultTextStyle(x => x.FontSize(7)).Column(column =>
             {
                 column.Item().Text("Data Set").FontSize(8).ExtraBold();
                 column.Item().Element(ComposeTable1Page2);
-                column.Item().Padding(5);
-                column.Item().Element(ComposeLineThrough);
                 column.Item().Padding(3);
+                column.Item().Element(ComposeLineThrough);
                 column.Item().Text("Linearity Data Analysis").FontSize(8).ExtraBold();
                 column.Item().Element(ComposeTable2Page2);
                 column.Item().Padding(3);
@@ -771,10 +769,10 @@ public class InvoiceDocument : IDocument
                     txt.Span("Regression: Theoretical vs. Observed Mean");
                     txt.Span("y = 0.536 x + 410.881 r2 = 0.848").ExtraBlack().ExtraBold();
                 });
-                column.Item().DefaultTextStyle(x => x.FontSize(6).ExtraBold()).Padding(3).Text("(*) Theoretical values are calculated from the best-fit line between L1, L3.");
+                column.Item().DefaultTextStyle(x => x.FontSize(6).ExtraBold()).Padding(1).Text("(*) Theoretical values are calculated from the best-fit line between L1, L3.");
             });
-            row.Spacing(10);
-            row.RelativeItem(2).DefaultTextStyle(x => x.FontSize(7)).Padding(3).Column(column =>
+            row.Spacing(5);
+            row.RelativeItem(2).DefaultTextStyle(x => x.FontSize(7)).Column(column =>
             {
                 column.Item().Element(ComposeGraph);
             });
@@ -785,25 +783,57 @@ public class InvoiceDocument : IDocument
     {
         container.Row(row =>
         {
-            row.RelativeItem(3).DefaultTextStyle(x => x.FontSize(7)).Padding(3).Column(column =>
+            row.RelativeItem(3).DefaultTextStyle(x => x.FontSize(7)).Column(column =>
             {
                 column.Item().Text("Peer Group Statistics").FontSize(8).ExtraBold();
                 column.Item().Element(ComposeTable3Page2);
-                column.Item().Padding(5);
-                column.Item().Element(ComposeLineThrough);
                 column.Item().Padding(3);
+                column.Item().Element(ComposeLineThrough);
                 column.Item().Text("Peer Group Comparison").FontSize(8).ExtraBold();
                 column.Item().Element(ComposeTable4Page2);
-                column.Item().Padding(3);
             });
-            row.Spacing(10);
-            row.RelativeItem(2).DefaultTextStyle(x => x.FontSize(7)).Padding(3).Column(column =>
+            row.Spacing(5);
+            row.RelativeItem(2).DefaultTextStyle(x => x.FontSize(7)).Column(column =>
             {
                 column.Item().Element(ComposeSecondGraph);
             });
         });
     }
 
+    void ComposeLastSectionSecondPage(IContainer container)
+    {
+        container.DefaultTextStyle(x => x.FontSize(6)).PaddingTop(5).Row(row =>
+        {
+            row.RelativeItem().Column(column =>
+            {
+                column.Item().AlignLeft().Text(txt =>
+                {
+                    txt.Line("Data Review").FontSize(7).ExtraBold();
+                    txt.Span("Reportable Range:").Underline().Bold();
+                    txt.Line("  10.00 to 1,000.00 U/L");
+                    txt.Span("Verified Range:").Underline().Bold();
+                    txt.Line("  27.5 to 2,527.50 U/L");
+                });
+            });
+            row.RelativeItem().Column(column =>
+            {
+                column.Item().AlignLeft().Text(txt =>
+                {
+                    txt.Span("Authorizing Signature:").Bold();
+                    txt.Line("                                            ").Underline();
+                    txt.Span("Name:").Bold();
+                });
+            });
+            row.RelativeItem().Column(column =>
+            {
+                column.Item().AlignRight().Text(txt =>
+                {
+                    txt.Line("Date:05/02/2023").Bold();
+                });
+            });
+        });
+    }
+    
     void ComposeFooter(IContainer container)
     {
         container.DefaultTextStyle(x => x.FontSize(6).Bold()).Row(row =>
@@ -831,6 +861,35 @@ public class InvoiceDocument : IDocument
                 {
                     txt.Line("printed: 05/02/2023");
                 });
+            });
+        });
+    }
+
+    void ComposeFooter2(IContainer container)
+    {
+        byte[] validate = File.ReadAllBytes("./validate.png");
+        container.DefaultTextStyle(x => x.FontSize(6).Bold()).Row(row =>
+        {
+            row.RelativeItem().Column(column =>
+            {
+                column.Item().AlignLeft().Text(txt =>
+                {
+                    txt.Line("Generated by MSDRx®");
+                    txt.Line("Template: 0.92");
+                });
+            });
+
+            row.RelativeItem().AlignRight().Column(column =>
+            {
+                column.Item().AlignRight().Text(txt =>
+                {
+                    txt.Span("Page ");
+                    txt.CurrentPageNumber();
+                    txt.Span(" of ");
+                    txt.TotalPages();
+                });
+
+                column.Item().PaddingRight(-15).Width(80, Unit.Point).AlignRight().Image(validate);
             });
         });
     }
