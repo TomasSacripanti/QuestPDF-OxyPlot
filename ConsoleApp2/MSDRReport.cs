@@ -2,6 +2,7 @@
 using QuestPDF.Fluent;
 using QuestPDF.Helpers;
 using QuestPDF.Infrastructure;
+using SkiaSharp;
 
 public class MSDRDocument : IDocument
 {
@@ -258,20 +259,19 @@ public class MSDRDocument : IDocument
         });
     }
 
-    void ComposeGraph(IContainer container)
-    {
-        container.Column(column =>
-        {
-            var plotModel = _oxyplotController.GetFirstPlot();
-            column.Item()
-                .Height(225)
-                .Canvas((canvas, size) =>
-                {
-                    var svg = _oxyplotController.PlotModelToSvg(plotModel, size);
-                    canvas.DrawPicture(svg.Picture);
-                });
-        });
-    }
+    //void ComposeGraph(IContainer container)
+    //{
+    //    container.Column(column =>
+    //    {
+    //        var plotModel = _oxyplotController.GetFirstPlot();
+    //        var defaultSize = new Size(225, 225);
+    //        var img = _oxyplotController.PlotModelToSvg(plotModel, defaultSize);
+    //        string base64String = Convert.ToBase64String(img);
+    //        column.Item()
+    //            .Height(225)
+    //            .Image(base64String);
+    //    });
+    //}
 
     void ComposeSecondGraph(IContainer container)
     {
@@ -282,8 +282,8 @@ public class MSDRDocument : IDocument
                 .Height(225)
                 .Canvas((canvas, size) =>
                 {
-                    var svg = _oxyplotController.PlotModelToSvg(plotModel, size);
-                    canvas.DrawPicture(svg.Picture);
+                    var svgPicture = _oxyplotController.PlotModelToSvg(plotModel, size);
+                    canvas.DrawPicture(svgPicture);
                 });
         });
     }
@@ -772,7 +772,7 @@ public class MSDRDocument : IDocument
             row.Spacing(5);
             row.RelativeItem(2).DefaultTextStyle(x => x.FontSize(7)).Column(column =>
             {
-                column.Item().Element(ComposeGraph);
+                //column.Item().Element(ComposeGraph);
             });
         });
     }

@@ -3,6 +3,8 @@ using OxyPlot.Series;
 using QuestPDF.Infrastructure;
 using OxyPlot.Axes;
 using OxyPlot.Legends;
+using SkiaSharp.Extended.Svg;
+using SkiaSharp;
 
 public class OxyplotController
 {
@@ -302,20 +304,25 @@ public class OxyplotController
         return plotModel;
     }
 
-    public SkiaSharp.Extended.Svg.SKSvg PlotModelToSvg(PlotModel plotModel, Size size)
+    public SKPicture PlotModelToSvg(PlotModel plotModel, Size size)
     {
         using var stream = new MemoryStream();
-        var exporter = new OxyPlot.SvgExporter
+        var exporter = new SvgExporter
         {
             Width = size.Width,
             Height = size.Height,
         };
-
         exporter.Export(plotModel, stream);
         stream.Position = 0;
         var svg = new SkiaSharp.Extended.Svg.SKSvg();
         svg.Load(stream);
-        return svg;
+
+        byte[] data = stream.ToArray();
+        File.WriteAllBytes("chart.svg", data);
+
+        SKPicture picture = svg.Picture;
+
+        return picture;
     }
 
     private static string _percentageFormatter(double d)
