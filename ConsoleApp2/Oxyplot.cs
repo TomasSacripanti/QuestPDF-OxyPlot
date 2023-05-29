@@ -13,14 +13,15 @@ public class OxyplotController
         // Create an OxyPlot PlotModel
         var plotModel = new PlotModel
         {
-            Padding = new OxyThickness(10, 20, 10, 10),
+            Padding = new OxyThickness(0, 10, 0, 0),
+            PlotMargins = new OxyThickness(50, 10, 20, 20),
             Title = "Linearity accross the reportable range",
             TitleFontSize = 8,
             TitleHorizontalAlignment = TitleHorizontalAlignment.CenteredWithinView,
             PlotAreaBackground = OxyColors.White,
             TitleColor = OxyColors.Black,
             IsLegendVisible = true,
-        };
+    };
 
         // Create the axis for the PlotModel
         var xAxis = new LinearAxis
@@ -139,11 +140,12 @@ public class OxyplotController
             LegendPosition = LegendPosition.BottomCenter,
             LegendOrientation = LegendOrientation.Horizontal,
             LegendPlacement = LegendPlacement.Outside,
-            LegendFontSize = 5,
+            LegendFontSize = 8,
             AllowUseFullExtent = true,
             LegendItemSpacing = 30,
             LegendLineSpacing = 5,
             LegendPadding = 15,
+            LegendMargin = 10
         };
 
         // Add the series and legends to the plot model
@@ -162,7 +164,8 @@ public class OxyplotController
         // Create an OxyPlot PlotModel
         var plotModel = new PlotModel
         {
-            Padding = new OxyThickness(10, 20, 10, 10),
+            Padding = new OxyThickness(0, 10, 0, 0),
+            PlotMargins = new OxyThickness(50, 10, 20, 20),
             Title = "% Difference Versus Peer Mean: GC3 LD",
             TitleFontSize = 8,
             TitleHorizontalAlignment = TitleHorizontalAlignment.CenteredWithinView,
@@ -287,11 +290,12 @@ public class OxyplotController
             LegendPosition = LegendPosition.BottomCenter,
             LegendOrientation = LegendOrientation.Horizontal,
             LegendPlacement = LegendPlacement.Outside,
-            LegendFontSize = 5,
+            LegendFontSize = 8,
             AllowUseFullExtent = true,
             LegendItemSpacing = 30,
             LegendLineSpacing = 5,
             LegendPadding = 15,
+            LegendMargin = 10
         };
 
         // Add the series and legends to the plot model
@@ -304,25 +308,22 @@ public class OxyplotController
         return plotModel;
     }
 
-    public SKPicture PlotModelToSvg(PlotModel plotModel, Size size)
+    public byte[] PlotModelToSvg(PlotModel plotModel, Size size)
     {
         using var stream = new MemoryStream();
-        var exporter = new SvgExporter
+        var exporter = new OxyPlot.SkiaSharp.PngExporter
         {
-            Width = size.Width,
-            Height = size.Height,
+            Width = (int)size.Width,
+            Height = (int)size.Height,
+            Dpi = 220,
         };
         exporter.Export(plotModel, stream);
         stream.Position = 0;
-        var svg = new SkiaSharp.Extended.Svg.SKSvg();
-        svg.Load(stream);
 
         byte[] data = stream.ToArray();
-        File.WriteAllBytes("chart.svg", data);
+        File.WriteAllBytes("chart.png", data);
 
-        SKPicture picture = svg.Picture;
-
-        return picture;
+        return data;
     }
 
     private static string _percentageFormatter(double d)

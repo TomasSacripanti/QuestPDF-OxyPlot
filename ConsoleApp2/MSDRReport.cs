@@ -259,32 +259,29 @@ public class MSDRDocument : IDocument
         });
     }
 
-    //void ComposeGraph(IContainer container)
-    //{
-    //    container.Column(column =>
-    //    {
-    //        var plotModel = _oxyplotController.GetFirstPlot();
-    //        var defaultSize = new Size(225, 225);
-    //        var img = _oxyplotController.PlotModelToSvg(plotModel, defaultSize);
-    //        string base64String = Convert.ToBase64String(img);
-    //        column.Item()
-    //            .Height(225)
-    //            .Image(base64String);
-    //    });
-    //}
+    void ComposeGraph(IContainer container)
+    {
+        container.Column(column =>
+        {
+            var plotModel = _oxyplotController.GetFirstPlot();
+            var size = new Size(575, 630);
+            var image = _oxyplotController.PlotModelToSvg(plotModel, size);
+            column.Item()
+                .Height(225)
+                .Image(image);
+        });
+    }
 
     void ComposeSecondGraph(IContainer container)
     {
         container.Column(column =>
         {
             var plotModel = _oxyplotController.GetSecondPlot();
+            var size = new Size(height: 600, width: 600); 
+            var image = _oxyplotController.PlotModelToSvg(plotModel, size);
             column.Item()
-                .Height(225)
-                .Canvas((canvas, size) =>
-                {
-                    var svgPicture = _oxyplotController.PlotModelToSvg(plotModel, size);
-                    canvas.DrawPicture(svgPicture);
-                });
+                .Height(215)
+                .Image(image);
         });
     }
 
@@ -772,7 +769,7 @@ public class MSDRDocument : IDocument
             row.Spacing(5);
             row.RelativeItem(2).DefaultTextStyle(x => x.FontSize(7)).Column(column =>
             {
-                //column.Item().Element(ComposeGraph);
+                column.Item().Element(ComposeGraph);
             });
         });
     }
