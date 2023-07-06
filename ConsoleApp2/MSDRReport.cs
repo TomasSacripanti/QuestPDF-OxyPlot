@@ -1,8 +1,6 @@
-﻿using OxyPlot.Series;
-using QuestPDF.Fluent;
+﻿using QuestPDF.Fluent;
 using QuestPDF.Helpers;
 using QuestPDF.Infrastructure;
-using SkiaSharp;
 
 public class MSDRDocument : IDocument
 {

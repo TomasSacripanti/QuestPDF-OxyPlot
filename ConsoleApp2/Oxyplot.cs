@@ -3,8 +3,6 @@ using OxyPlot.Series;
 using QuestPDF.Infrastructure;
 using OxyPlot.Axes;
 using OxyPlot.Legends;
-using SkiaSharp.Extended.Svg;
-using SkiaSharp;
 
 public class OxyplotController
 {

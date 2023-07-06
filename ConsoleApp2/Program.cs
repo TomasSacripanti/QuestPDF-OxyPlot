@@ -1,5 +1,4 @@
-﻿using OxyPlot;
-using QuestPDF.Fluent;
+﻿using QuestPDF.Fluent;
 using QuestPDF.Infrastructure;
 using QuestPDF.Previewer;
 using System.Diagnostics;
